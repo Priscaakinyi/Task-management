@@ -245,7 +245,7 @@ const Todo = () => {
         </Card>
 
         {/*Not Started tabs */}
-       <Tabs defaultActiveKey="1">
+       <Tabs defaultActiveKey="1" centered >
     <Tabs.TabPane tab="Not Started" key="1">
         {/* collapsable */}
      <Collapse accordion>
