@@ -1,5 +1,5 @@
 
-import { Button, Modal, Form, Input, Radio, Tree, Dropdown, Checkbox, DatePicker, InputNumber, Space, Slider, Select } from 'antd';
+import { Button, Modal, Form, Input, DatePicker, InputNumber, Space, Select } from 'antd';
 import { useState } from 'react';
 
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
@@ -7,47 +7,46 @@ import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 const Create = () => {
   const [form] = Form.useForm()
-    const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
-    const createTask = () => setIsModalVisible(true)
+  const createTask = () => setIsModalVisible(true)
 
-    const handleCancel = () => {
-        setIsModalVisible(false)
-        form.resetFields()
-    }
+  const handleCancel = () => {
+    setIsModalVisible(false)
+    form.resetFields()
+  }
 
-    const handleOk = () => {
-        form.submit()
-    }
+  const handleOk = () => {
+    form.submit()
+  }
 
-    const onFinish = () => {
-        console.log('Form submited!')
-        setIsModalVisible(false)
-    }
+  const onFinish = () => {
+    console.log('Form submited!')
+    setIsModalVisible(false)
+  }
 
 
   return (
     <div>
 
-      <Button type="primary" onClick={createTask }> Create Task </Button>
+      <Button type="primary" onClick={createTask}> Create Task </Button>
 
-            <Modal
-                title="Create Todo"
-                visible={isModalVisible}
-                onOk={handleOk}
-                onCancel={handleCancel}
-                footer={[
-                    <Button key="back" onClick={handleCancel}>
-                        Cancel
-                    </Button>,
-                    <Button key="submit" type="primary" onClick={handleOk}>
-                        Submit
-                    </Button>,
-                ]}>
-                <Form labelCol={{ xs: { span: 6 } }} wrapperCol={{ xs: { span: 12 } }} form={form} onFinish={onFinish} scrollToFirstError>
+      <Modal
+        title="Create Todo"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={[
+          <Button key="back" onClick={handleCancel}>
+            Cancel
+          </Button>,
+          <Button key="submit" type="primary" onClick={handleOk}>
+            Submit
+          </Button>,
+        ]}>
+        <Form labelCol={{ xs: { span: 6 } }} wrapperCol={{ xs: { span: 8 } }} form={form} onFinish={onFinish} scrollToFirstError>
 
-                    
-                    <Form.Item
+          <Form.Item
             label="TaskID:"
             name="TaskID"
             value=""
@@ -60,6 +59,7 @@ const Create = () => {
           >
             <InputNumber />
           </Form.Item>
+
           <Form.Item
             label="TaskName:"
             name="TaskName"
@@ -121,7 +121,7 @@ const Create = () => {
             </Select>
           </Form.Item>
 
-        
+
 
           <Form.List name="subtasks"  >
             {(fields, { add, remove }) => (
@@ -146,7 +146,7 @@ const Create = () => {
                         },
                       ]}
                     >
-                      <InputNumber placeholder='subTaskId' />
+                      <InputNumber placeholder='subTaskId' style={{ width: "120px" }} />
                     </Form.Item>
                     <Form.Item
                       {...restField}
@@ -159,7 +159,7 @@ const Create = () => {
                         },
                       ]}
                     >
-                      <Input placeholder="subTaskName" />
+                      <Input placeholder="subTaskName" style={{ width: "120px" }} />
                     </Form.Item>
                     <Form.Item
                       {...restField}
@@ -172,14 +172,7 @@ const Create = () => {
                         },
                       ]}
                     >
-                      <DatePicker placeholder='subTaskEndDate' />
-                    </Form.Item>
-
-                    <Form.Item  {...restField}
-                      name={[name, 'subTaskCompleted']}
-                      value=""
-                    >
-                      <Checkbox>Completed</Checkbox>
+                      <DatePicker placeholder='EndDate' style={{ width: "120px" }} />
                     </Form.Item>
 
                     <MinusCircleOutlined onClick={() => remove(name)} />
@@ -196,9 +189,9 @@ const Create = () => {
 
 
 
-                </Form>
-            </Modal>
-      
+        </Form>
+      </Modal>
+
 
 
     </div>

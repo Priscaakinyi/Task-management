@@ -1,25 +1,19 @@
-
 import './App.css';
 import 'antd/dist/reset.css';
-import Todo from './pages/Todo';
 import Navbar from './components/Navbar';
-import Sub from './components/Sub';
+import RoutesTree from './components/RoutesTree';
 
 function App() {
   return (
 
-      <>
-      <Navbar/>
+    <>
+      <Navbar />
+      <RoutesTree />
 
-      <Todo/>
-     <Sub/>
-      
-      
-      
-      </>
+    </>
 
-  
-   
+
+
   );
 }
 
