@@ -12,6 +12,7 @@ function App() {
       <Navbar/>
 
       <Todo/>
+     <Sub/>
       
       
       
