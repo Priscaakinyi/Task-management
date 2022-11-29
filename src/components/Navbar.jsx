@@ -1,20 +1,20 @@
 
-import { Card, Grid, Typography  } from 'antd'
+import { Card, Grid, Typography } from 'antd'
 import { Header } from 'antd/es/layout/layout';
 const { Title } = Typography;
 
 const Navbar = () => {
   return (
     <div>
-       <Header>
+      <Header>
         <Card>
-             <Title type="primary" align="center"level={3}>Task Management Application</Title>
+          <Title type="primary" align="center" level={3}>TASK MANAGEMENT APPLICATION</Title>
         </Card>
 
-       </Header>
-      
+      </Header>
 
-      
+
+
     </div>
   )
 }

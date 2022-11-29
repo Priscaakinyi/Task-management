@@ -2,8 +2,12 @@ import { Button, Card, Col, Tabs, Row, Collapse, Table, Progress } from 'antd'
 import Layout, { Content } from 'antd/es/layout/layout';
 import AddTodo from '../components/AddTodo'
 import { Link } from "react-router-dom";
+import { blue } from '@ant-design/colors';
 
 const { Panel } = Collapse;
+
+
+
 
 const highPriorityDataNotStarted = [
   {
@@ -239,12 +243,12 @@ const Todo = () => {
           </Card>
 
           {/*Not Started tabs */}
-          <Tabs defaultActiveKey="1" centered >
+          <Tabs defaultActiveKey="1" centered style={{ backgroundColor: "#DBF1FE" }}>
             <Tabs.TabPane tab="Not Started" key="1">
               {/* collapsable */}
-              <Collapse accordion>
+              <Collapse accordion >
                 {/* high priority collapsable */}
-                <Panel header="High Priority" key="1">
+                < Panel className="Panel" header="High Priority" key="1">
                   <Table dataSource={highPriorityDataNotStarted} columns={columns} />;
                 </Panel>
                 {/* medium priority collapsable */}
@@ -286,7 +290,7 @@ const Todo = () => {
               <Collapse accordion>
                 {/* high priority collapsable */}
                 <Panel header="High Priority" key="1">
-                  <Table dataSource={highPriorityDataCompleted} columns={columns} />;
+                  <Table className='Table' dataSource={highPriorityDataCompleted} columns={columns} />;
                 </Panel>
                 {/* medium priority collapsable */}
                 <Panel header="Medium Priority" key="2">
@@ -318,7 +322,7 @@ const Todo = () => {
 
 
 
-    </div>
+    </div >
   )
 }
 
