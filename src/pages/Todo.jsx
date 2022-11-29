@@ -229,7 +229,7 @@ const columns = [
 
 const Todo = () => {
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <Layout>
         <Content >
           <Card>

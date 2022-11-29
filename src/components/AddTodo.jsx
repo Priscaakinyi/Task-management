@@ -17,12 +17,32 @@ const Create = () => {
   }
 
   const handleOk = () => {
-    form.submit()
+
+    form.submit();
+
+
   }
 
+
+
+  //SUbtask validator for End Date
+  const subtaskValidation = (TaskEndDate, subTaskEndDate) => {
+
+    if (TaskEndDate < subTaskEndDate) {
+      return Promise.reject('Subtask End Date must be less than Task End Date')
+    }
+    return Promise.resolve()
+
+  }
+
+
+
+
+
   const onFinish = () => {
-    console.log('Form submited!')
-    setIsModalVisible(false)
+    setIsModalVisible(false);
+    alert('Task Created Succesfully')
+
   }
 
 
@@ -40,7 +60,10 @@ const Create = () => {
           <Button key="back" onClick={handleCancel}>
             Cancel
           </Button>,
-          <Button key="submit" type="primary" onClick={handleOk}>
+          <Button key="submit" type="primary" onClick={() => {
+            handleOk();
+
+          }}>
             Submit
           </Button>,
         ]}>
@@ -96,11 +119,12 @@ const Create = () => {
                 required: true,
                 message: 'Please input Priority?',
               },
+
             ]}>
             <Select>
-              <Select.Option value="demo">Low</Select.Option>
-              <Select.Option value="demo">Medium</Select.Option>
-              <Select.Option value="demo">High</Select.Option>
+              <Select.Option value="Low">Low</Select.Option>
+              <Select.Option value="Medium">Medium</Select.Option>
+              <Select.Option value="High">High</Select.Option>
             </Select>
           </Form.Item>
 
@@ -115,9 +139,9 @@ const Create = () => {
               },
             ]}>
             <Select>
-              <Select.Option value="demo">Not Started</Select.Option>
-              <Select.Option value="demo">In Progress</Select.Option>
-              <Select.Option value="demo">Completed</Select.Option>
+              <Select.Option value="Not Started">Not Started</Select.Option>
+              <Select.Option value="In Progress">In Progress</Select.Option>
+              <Select.Option value="Completed">Completed</Select.Option>
             </Select>
           </Form.Item>
 
@@ -169,7 +193,13 @@ const Create = () => {
                         {
                           required: true,
                           message: 'Missing subtaskEndDate',
+
                         },
+                        {
+                          validator: (_, subTaskEndDate) => subtaskValidation(form.getFieldValue('TaskEndDate'), subTaskEndDate)
+                        }
+
+
                       ]}
                     >
                       <DatePicker placeholder='EndDate' style={{ width: "120px" }} />

@@ -3,6 +3,12 @@ import { Button, Typography, Table, Progress, Space } from 'antd'
 import Layout, { Content } from 'antd/es/layout/layout';
 import { Link } from 'react-router-dom';
 
+const handleAlert = () => {
+
+  alert('Subtask Completed')
+
+}
+
 
 const columns = [
   {
@@ -34,7 +40,7 @@ const subTaskData = [
     taskId: '001-a',
     taskName: 'Finish App task 1',
     endDate: '2021-09-01',
-    actions: <Button type="primary">Complete</Button>
+    actions: <Button type="primary" onClick={handleAlert}>Complete</Button>
 
   },
 
@@ -42,7 +48,7 @@ const subTaskData = [
     taskId: '001-b',
     taskName: 'Finish App task 2',
     endDate: '2021-09-01',
-    actions: <Button type="primary">Complete</Button>
+    actions: <Button type="primary" onClick={handleAlert}>Complete</Button>
 
   },
 
@@ -50,7 +56,7 @@ const subTaskData = [
     taskId: '001-c',
     taskName: 'Finish App task 1',
     endDate: '2021-09-01',
-    actions: <Button type="primary">Complete</Button>
+    actions: <Button type="primary" onClick={handleAlert}>Complete</Button>
 
   },
 
@@ -58,7 +64,7 @@ const subTaskData = [
     taskId: '001-d',
     taskName: 'Finish App task 2',
     endDate: '2021-09-01',
-    actions: <Button type="primary">Complete</Button>
+    actions: <Button type="primary" onClick={handleAlert}>Complete</Button>
 
 
   },
@@ -66,7 +72,7 @@ const subTaskData = [
     taskId: '001-e',
     taskName: 'Finish App task 1',
     endDate: '2021-09-01',
-    actions: <Button type="primary">Complete</Button>
+    actions: <Button type="primary" onClick={handleAlert}>Complete</Button>
 
   },
 
