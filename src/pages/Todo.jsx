@@ -2,7 +2,7 @@ import { Button, Card, Col, Tabs, Row, Collapse, Table, Progress } from 'antd'
 import Layout, { Content } from 'antd/es/layout/layout';
 import AddTodo from '../components/AddTodo'
 import { Link } from "react-router-dom";
-import { blue } from '@ant-design/colors';
+
 
 const { Panel } = Collapse;
 
